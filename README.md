@@ -2,6 +2,7 @@
 
 ## Links
 	- model gateway que tenim: rhf0m31
+
 	http://www.risinghf.com/product/rhf0m301/?lang=en
 
 	- forum sobre rhf0m31 a la web TTN
@@ -18,6 +19,14 @@
 
 ## Paràmetres necessaris per configurar xarxa
 	- device EUI
+		- 8 bytes
+		- Set by user, if not, the preprogrammed EUI is used.
+		- Example for user-provided device EUI:
+			{
+				LoRaWAN.setDeviceEUI('0102030405060708');
+				LoRaWAN.getDeviceEUI();
+			}
+
 	- device address
 	- application session key
 	- network session key
