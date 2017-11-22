@@ -1,10 +1,10 @@
 # LoRaWan recerca configuració gateway
 
 ## Links
-	- gateway ('gw') que tenim: rhf0m31
+	- model gateway que tenim: rhf0m31
 	http://www.risinghf.com/product/rhf0m301/?lang=en
 
-	- forum sobre rhf0m31
+	- forum sobre rhf0m31 a la web TTN
 	https://www.thethingsnetwork.org/forum/t/has-anyone-tried-the-risinghf-gateway-boards/3281/9
 
 	- model gw estandar a TTN: ic880
@@ -23,4 +23,5 @@
 	- network session key
 	- application EUI
 	- application key
+
 
