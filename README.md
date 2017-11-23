@@ -12,7 +12,7 @@ https://wireless-solutions.de/products/radiomodules/ic880a
 	* ic880 configuració (gonzalo casas)
 	https://github.com/ttn-zh/ic880a-gateway/wiki
 
-* model gw libelium waspmote (model que fan servir eawag)
+* model gw libelium waspmote (model que fan servir EAWAG)
 http://www.libelium.com/products/waspmote/
 
 * bateria
