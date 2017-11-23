@@ -1,12 +1,20 @@
 # Recerca per configurar gateway LoRaWAN a ICRA
 
-## 1. Links
+## 0. Aconseguit
+- 23/11/2017: enviar bytes amb seeeduino lorawan via ABP amb comandes AT des de l'arduino ide:
+	'''
+		at+id
+		at+id=appeui,"00 00 00 00 00 00 00 01"
+		at+mode=lwabp
+		at+cmsghex="00 01 02 03 04 05 06 07 08 09 10"
+	'''
 
+## 1. Links
 * model gateway que tenim: rhf0m31
 http://www.risinghf.com/product/rhf0m301/?lang=en
-	* user manual
+	* user manual (fet)
 	https://github.com/SeeedDocument/LoRaWAN_Gateway-868MHz_Kit_with_Raspberry_Pi_3/raw/master/res/%5BRHF-UM01649%5DIoT%20Discovery%20User%20Manual-seeed-v2.1.pdf
-	* forum sobre rhf0m31 a la web TTN
+	* forum sobre rhf0m31 a la web TTN (no llegit)
 	https://www.thethingsnetwork.org/forum/t/has-anyone-tried-the-risinghf-gateway-boards/3281/9
 
 * model gw molt utilitzat a TTN: ic880
@@ -27,11 +35,8 @@ https://www.seeedstudio.com/Seeeduino-LoRaWAN-p-2780.html
 	- DEVICE EUI
 		- 8 bytes
 		- Set by the user. If not, the preprogrammed is used (00-00-00-00-00-00-00-00).
-			LoRaWAN.setDeviceEUI();
-			LoRaWAN.getDeviceEUI();
 		- Example for user-provided device EUI:
 			LoRaWAN.setDeviceEUI('0102030405060708');
-			LoRaWAN.getDeviceEUI();
 
 	- DEVICE ADDRESS
 		- 4 bytes (0 to ff-ff-ff-ff)
@@ -39,7 +44,6 @@ https://www.seeedstudio.com/Seeeduino-LoRaWAN-p-2780.html
 		- if not set, the last 4 bytes of device EUI are used.
 		- exemple:
 			LoRaWAN.setDeviceAddr('01020304');
-			LoRaWAN.getDeviceAddr();
 
 	- APPLICATION SESSION KEY
 		- 16 bytes (128 bits) AES algorithm
@@ -68,7 +72,7 @@ https://www.seeedstudio.com/Seeeduino-LoRaWAN-p-2780.html
 		- set by user
 		- Whenever an end-device joins a network via OTAA, the Application Key is used to derive the session keys, Network Session Key and Application Session Key, which are speci c for that end-device to encrypt and verify network communication and application data.
 		- exemple:
-			LoRaWAN.setAppKey(“00102030405060708090A0B0C0D0E0F”);
+			LoRaWAN.setAppKey(“0102030405060708090A0B0C0D0E0F”);
 
 ## 3. Activació d'una xarxa
 	To participate in a LoRaWAN network, each module has to be personalized and activated.
@@ -79,9 +83,9 @@ https://www.seeedstudio.com/Seeeduino-LoRaWAN-p-2780.html
 
 ### 3.1. OTAA
 	The OTAA join procedure requires the module to be personalized with the following information before its starts the join procedure:
-	- Device EUI (64-bit)
-	- Application EUI (64-bit)
-	- Application Key (128-bit)
+	- Device EUI      ( 64 bit ==  8 byte)
+	- Application EUI ( 64 bit ==  8 byte)
+	- Application Key (128 bit == 16 byte)
 
 	After joining through OTAA, the module and the network exchanged the Network Session Key and the Application Session Key which are needed to perform communications.
 
