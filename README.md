@@ -1,11 +1,9 @@
 # Recerca per configurar gateway LoRaWAN a ICRA
 
 ## 1. Links
+
 	- model gateway que tenim: rhf0m31
-
-
-	[http://www.risinghf.com/product/rhf0m301/?lang=en](http://www.risinghf.com/product/rhf0m301/?lang=en)
-
+[http://www.risinghf.com/product/rhf0m301/?lang=en](http://www.risinghf.com/product/rhf0m301/?lang=en)
 
 	- forum sobre rhf0m31 a la web TTN
 	https://www.thethingsnetwork.org/forum/t/has-anyone-tried-the-risinghf-gateway-boards/3281/9
