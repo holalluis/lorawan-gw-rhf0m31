@@ -4,6 +4,8 @@
 
 * model gateway que tenim: rhf0m31
 http://www.risinghf.com/product/rhf0m301/?lang=en
+	* user manual
+	https://github.com/SeeedDocument/LoRaWAN_Gateway-868MHz_Kit_with_Raspberry_Pi_3/raw/master/res/%5BRHF-UM01649%5DIoT%20Discovery%20User%20Manual-seeed-v2.1.pdf
 	* forum sobre rhf0m31 a la web TTN
 	https://www.thethingsnetwork.org/forum/t/has-anyone-tried-the-risinghf-gateway-boards/3281/9
 
