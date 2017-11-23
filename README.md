@@ -16,6 +16,13 @@
 	- model gw libelium waspmote
 	http://www.libelium.com/products/waspmote/
 
+	- bateria
+	https://www.cooking-hacks.com/6600ma-h-rechargeable-battery
+
+	- seeeduino lorawan (en tenim 3)
+	https://www.seeedstudio.com/Seeeduino-LoRaWAN-p-2780.html
+
+
 ## 2. Paràmetres necessaris per configurar xarxa
 	- DEVICE EUI
 		- 8 bytes
