@@ -4,9 +4,8 @@
 
 * model gateway que tenim: rhf0m31
 http://www.risinghf.com/product/rhf0m301/?lang=en
-
-* forum sobre rhf0m31 a la web TTN
-https://www.thethingsnetwork.org/forum/t/has-anyone-tried-the-risinghf-gateway-boards/3281/9
+	* forum sobre rhf0m31 a la web TTN
+	https://www.thethingsnetwork.org/forum/t/has-anyone-tried-the-risinghf-gateway-boards/3281/9
 
 * model gw molt utilitzat a TTN: ic880
 https://wireless-solutions.de/products/radiomodules/ic880a
@@ -99,7 +98,7 @@ https://www.seeedstudio.com/Seeeduino-LoRaWAN-p-2780.html
 
 ## 4. Enviar dades al gateway
 
-## 4.1. Send unconfirmed data (sense ACK del servidor)
+### 4.1. Send unconfirmed data (sense ACK del servidor)
 	Example of use:
 	{
 		uint8_t port = 1;
@@ -107,7 +106,7 @@ https://www.seeedstudio.com/Seeeduino-LoRaWAN-p-2780.html
 		LoRaWAN.sendUnconfirmed(port, data);
 	}
 	
-## 4.2. Send confirmed data (amb ACK del servidor)
+### 4.2. Send confirmed data (amb ACK del servidor)
 	Example of use:
 	{
 		uint8_t port = 1;
