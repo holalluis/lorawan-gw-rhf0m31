@@ -5,23 +5,23 @@
 * model gateway que tenim: rhf0m31
 [http://www.risinghf.com/product/rhf0m301/?lang=en](http://www.risinghf.com/product/rhf0m301/?lang=en)
 
-	- forum sobre rhf0m31 a la web TTN
-	https://www.thethingsnetwork.org/forum/t/has-anyone-tried-the-risinghf-gateway-boards/3281/9
+* forum sobre rhf0m31 a la web TTN
+https://www.thethingsnetwork.org/forum/t/has-anyone-tried-the-risinghf-gateway-boards/3281/9
 
-	- model gw estandar a TTN: ic880
-	https://wireless-solutions.de/products/radiomodules/ic880a
+* model gw estandar a TTN: ic880
+https://wireless-solutions.de/products/radiomodules/ic880a
 
-	- ic880 configuració (gonzalo casas)
-	https://github.com/ttn-zh/ic880a-gateway/wiki
+* ic880 configuració (gonzalo casas)
+https://github.com/ttn-zh/ic880a-gateway/wiki
 
-	- model gw libelium waspmote
-	http://www.libelium.com/products/waspmote/
+* model gw libelium waspmote
+http://www.libelium.com/products/waspmote/
 
-	- bateria
-	https://www.cooking-hacks.com/6600ma-h-rechargeable-battery
+* bateria
+https://www.cooking-hacks.com/6600ma-h-rechargeable-battery
 
-	- seeeduino lorawan (en tenim 3)
-	https://www.seeedstudio.com/Seeeduino-LoRaWAN-p-2780.html
+* seeeduino lorawan (en tenim 3)
+https://www.seeedstudio.com/Seeeduino-LoRaWAN-p-2780.html
 
 
 ## 2. Paràmetres necessaris per configurar xarxa
