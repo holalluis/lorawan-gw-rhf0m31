@@ -10,7 +10,7 @@ Esquema aparells connectats
 ## 0. Aconseguit
 - Enviats al gateway 4 bytes des del Seeeduino (via ABP) amb comandes AT, des del monitor serial de l'Arduino IDE:
 	- Sketch arduino per enviar-li comandes AT:
-	```
+	```c++
 		void setup() {
 			Serial1.begin(9600);
 			SerialUSB.begin(115200);
@@ -78,7 +78,8 @@ http://www.risinghf.com/product/rhf0m301/?lang=en
 
 * Altres aparells (que no tenim)
 	* model gw molt utilitzat a TTN: ic880 (possible compra)
-	https://wireless-solutions.de/products/radiomodules/ic880a
+		* aparell
+		https://wireless-solutions.de/products/radiomodules/ic880a
 		* configuració (gonzalo casas)
 		https://github.com/ttn-zh/ic880a-gateway/wiki
 	* model gw libelium waspmote (model que fan servir EAWAG) (possible compra)
