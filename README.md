@@ -179,7 +179,7 @@ The ABP join procedure requires the module to be personalized with the following
 Example of use:
 ```c++
 	uint8_t port = 1;
-	char data[]  = “010203040506070809”;
+	char data[]  = "010203040506070809";
 	LoRaWAN.sendUnconfirmed(port, data);
 ```
 	
@@ -187,6 +187,6 @@ Example of use:
 Example of use:
 ```c++
 	uint8_t port = 1;
-	char data[]  = “010203040506070809”;
+	char data[]  = "010203040506070809";
 	LoRaWAN.sendConfirmed(port, data);
 ```
