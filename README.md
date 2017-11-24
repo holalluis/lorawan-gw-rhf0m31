@@ -177,16 +177,16 @@ The ABP join procedure requires the module to be personalized with the following
 
 ### 4.1. Send unconfirmed data (sense ACK del servidor)
 Example of use:
-{
+```c++
 	uint8_t port = 1;
 	char data[]  = “010203040506070809”;
 	LoRaWAN.sendUnconfirmed(port, data);
-}
+```
 	
 ### 4.2. Send confirmed data (amb ACK del servidor)
 Example of use:
-{
+```c++
 	uint8_t port = 1;
 	char data[]  = “010203040506070809”;
 	LoRaWAN.sendConfirmed(port, data);
-}
+```
