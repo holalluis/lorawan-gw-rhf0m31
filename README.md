@@ -1,57 +1,117 @@
-# Recerca per configurar gateway LoRaWAN a ICRA
+# Recerca per configurar gateway LoRaWAN a ICRA (model rhf0m31)
+
+Esquema aparells connectats
+```
+	+--------+-----------+           +---------+--------------+----------+
+	| Sensor | Seeeduino | ~~LoRa~~> | Gateway | Raspberry Pi | Internet |
+	+--------+-----------+           +---------+--------------+----------+
+```
 
 ## 0. Aconseguit
-- Enviar 10 bytes amb seeeduino lorawan via ABP amb comandes AT des de l'arduino IDE:
-
+- Enviats al gateway 4 bytes des del Seeeduino (via ABP) amb comandes AT, des del monitor serial de l'Arduino IDE:
+	- Sketch arduino per enviar-li comandes AT:
 	```
-	at+mode=lwabp
-	at+id
-	at+id=appeui,"00 00 00 00 00 00 00 01"
-	at+cmsghex="00 01 02 03 04 05 06 07 08 09 10"
+		void setup() {
+			Serial1.begin(9600);
+			SerialUSB.begin(115200);
+		}
+
+		void loop() {
+			while(Serial1.available()) {
+				SerialUSB.write(Serial1.read());
+			}
+			while(SerialUSB.available()) {
+				Serial1.write(SerialUSB.read());
+			}
+		}
+	```
+	- Comandes AT per configuració:
+	```
+		at+ver
+		at+id //necessari per veure les adreces per configurar el seeeduino dins el gateway
+		at+mode=lwabp
+		at+id=appeui,"00 00 00 00 00 00 00 01"
+	```
+	- Comanda AT per enviar 4 bytes de prova:
+	```
+		at+cmsghex="00 01 02 03"
+	```
+- Enviat string "Hello World" amb la llibreria LoRaWAN.h d'arduino
+	```c++
+		#include <LoRaWan.h>
+		void setup(void) {
+			lora.init();
+			lora.getVersion(buffer, 256, 1);
+			lora.getId(buffer, 256, 1);
+			lora.setKey("2B7E151628AED2A6ABF7158809CF4F3C", "2B7E151628AED2A6ABF7158809CF4F3C", "2B7E151628AED2A6ABF7158809CF4F3C");
+			lora.setDeciveMode(LWABP);
+			lora.setDataRate(DR0, EU868);
+			lora.setChannel(0, 868.1);
+			lora.setChannel(1, 868.3);
+			lora.setChannel(2, 868.5);
+			lora.setReceiceWindowFirst(0, 868.1);
+			lora.setReceiceWindowSecond(869.5, DR3);
+			lora.setDutyCycle(false);
+			lora.setJoinDutyCycle(false);
+			lora.setPower(14);
+		}
+
+		void loop(void) {   
+			bool result = false;
+			result = lora.transferPacket("Hello World!", 10);
+		}
 	```
 
 ## 1. Links
 * model gateway que tenim: rhf0m31
 http://www.risinghf.com/product/rhf0m301/?lang=en
-	* user manual (fet)
+	* user manual (serveix per configurar el raspberry+gateway)(tot fet menys la part de l'empresa Loriot)
 	https://github.com/SeeedDocument/LoRaWAN_Gateway-868MHz_Kit_with_Raspberry_Pi_3/raw/master/res/%5BRHF-UM01649%5DIoT%20Discovery%20User%20Manual-seeed-v2.1.pdf
-	* forum sobre rhf0m31 a la web TTN (no llegit)
+	* forum sobre rhf0m31 a TTN.org (no llegit)
 	https://www.thethingsnetwork.org/forum/t/has-anyone-tried-the-risinghf-gateway-boards/3281/9
 
-* model gw molt utilitzat a TTN: ic880
-https://wireless-solutions.de/products/radiomodules/ic880a
-	* ic880 configuració (gonzalo casas)
-	https://github.com/ttn-zh/ic880a-gateway/wiki
+* seeeduino lorawan (en tenim 3) (és l'aparell que envia les dades al gateway)
+	* aparell
+	https://www.seeedstudio.com/Seeeduino-LoRaWAN-p-2780.html
+	* instruccions
+	http://wiki.seeed.cc/Seeeduino_LoRAWAN/
 
-* model gw libelium waspmote (model que fan servir EAWAG)
-http://www.libelium.com/products/waspmote/
+* Altres aparells (que no tenim)
+	* model gw molt utilitzat a TTN: ic880 (possible compra)
+	https://wireless-solutions.de/products/radiomodules/ic880a
+		* configuració (gonzalo casas)
+		https://github.com/ttn-zh/ic880a-gateway/wiki
+	* model gw libelium waspmote (model que fan servir EAWAG) (possible compra)
+	http://www.libelium.com/products/waspmote/
 
-* bateria
-https://www.cooking-hacks.com/6600ma-h-rechargeable-battery
-
-* seeeduino lorawan (en tenim 3): pels sensors
-https://www.seeedstudio.com/Seeeduino-LoRaWAN-p-2780.html
 
 ## 2. Paràmetres necessaris per configurar xarxa
+	nota: els exemples de codi corresponen al model Waspmote, no al rhf0m31
 	- DEVICE EUI
 		- 8 bytes
 		- Set by the user. If not, the preprogrammed is used (00-00-00-00-00-00-00-00).
 		- Example for user-provided device EUI:
-			LoRaWAN.setDeviceEUI('0102030405060708');
+			```
+			setDeviceEUI('0102030405060708');
+			```
 
 	- DEVICE ADDRESS
 		- 4 bytes (0 to ff-ff-ff-ff)
 		- has to be unique inside network
 		- if not set, the last 4 bytes of device EUI are used.
 		- exemple:
-			LoRaWAN.setDeviceAddr('01020304');
+			```
+			setDeviceAddr('01020304');
+			```
 
 	- APPLICATION SESSION KEY
 		- 16 bytes (128 bits) AES algorithm
 		- each end device has its own unique app session key
 		- is a secret key: only known by end devices and application server
 		- exemple:
-			LoRaWAN.setAppSessionKey(“00102030405060708090A0B0C0D0E0F”);
+			```
+			setAppSessionKey(“00102030405060708090A0B0C0D0E0F”);
+			```
 
 	- NETWORK SESSION KEY
 		- 16 bytes
@@ -59,21 +119,27 @@ https://www.seeedstudio.com/Seeeduino-LoRaWAN-p-2780.html
 		- obtinguda a partir de la App Sess Key
 		- each end device has its own NSK, only known by the device and network server.
 		- exemple:
-			LoRaWAN.setNwkSessionKey(“00102030405060708090A0B0C0D0E0F”);
+			```
+			setNwkSessionKey(“00102030405060708090A0B0C0D0E0F”);
+			```
 
 	- APPLICATION EUI
 		- 8 bytes
 		- set by user
 		- global application identifier
 		- exemple:
-			LoRaWAN.setAppEUI(“1112131415161718”);
+			```
+			setAppEUI(“1112131415161718”);
+			```
 
 	- APPLICATION KEY
 		- 16 bytes
 		- set by user
 		- Whenever an end-device joins a network via OTAA, the Application Key is used to derive the session keys, Network Session Key and Application Session Key, which are speci c for that end-device to encrypt and verify network communication and application data.
 		- exemple:
-			LoRaWAN.setAppKey(“0102030405060708090A0B0C0D0E0F”);
+			```
+			setAppKey(“0102030405060708090A0B0C0D0E0F”);
+			```
 
 ## 3. Activació d'una xarxa
 	To participate in a LoRaWAN network, each module has to be personalized and activated.
@@ -91,7 +157,9 @@ https://www.seeedstudio.com/Seeeduino-LoRaWAN-p-2780.html
 	After joining through OTAA, the module and the network exchanged the Network Session Key and the Application Session Key which are needed to perform communications.
 
 	- join:
+		```
 		LoRaWAN.joinOTAA();
+		```
 
 ### 3.2. ABP
 	Each module should have a unique set of Network Session Key and Application Session Key.
@@ -101,7 +169,9 @@ https://www.seeedstudio.com/Seeeduino-LoRaWAN-p-2780.html
 	- Application Session Key (128-bit key) ensures end-to-end security on application level
 
 	- join:
+		```
 		LoRaWAN.joinABP();
+		```
 
 ## 4. Enviar dades al gateway
 
