@@ -89,7 +89,7 @@ http://www.risinghf.com/product/rhf0m301/?lang=en
 
 ## 2. Paràmetres necessaris per configurar xarxa
 <b>nota</b>: els exemples de codi corresponen al model Waspmote, no al rhf0m31
-- <b>DEVICE EUI</b>
+- **DEVICE EUI**
 	- 8 bytes
 	- Set by the user. If not, the preprogrammed is used (00-00-00-00-00-00-00-00).
 	- Example for user-provided device EUI:
@@ -97,7 +97,7 @@ http://www.risinghf.com/product/rhf0m301/?lang=en
 		setDeviceEUI('0102030405060708');
 		```
 
-- *DEVICE ADDRESS*
+- **DEVICE ADDRESS**
 	- 4 bytes (0 to ff-ff-ff-ff)
 	- has to be unique inside network
 	- if not set, the last 4 bytes of device EUI are used.
@@ -106,7 +106,7 @@ http://www.risinghf.com/product/rhf0m301/?lang=en
 		setDeviceAddr('01020304');
 		```
 
-- APPLICATION SESSION KEY
+- **APPLICATION SESSION KEY**
 	- 16 bytes (128 bits) AES algorithm
 	- each end device has its own unique app session key
 	- is a secret key: only known by end devices and application server
@@ -115,7 +115,7 @@ http://www.risinghf.com/product/rhf0m301/?lang=en
 		setAppSessionKey(“00102030405060708090A0B0C0D0E0F”);
 		```
 
-- NETWORK SESSION KEY
+- **NETWORK SESSION KEY**
 	- 16 bytes
 	- set by user
 	- obtinguda a partir de la App Sess Key
@@ -125,7 +125,7 @@ http://www.risinghf.com/product/rhf0m301/?lang=en
 		setNwkSessionKey(“00102030405060708090A0B0C0D0E0F”);
 		```
 
-- APPLICATION EUI
+- **APPLICATION EUI**
 	- 8 bytes
 	- set by user
 	- global application identifier
@@ -134,7 +134,7 @@ http://www.risinghf.com/product/rhf0m301/?lang=en
 		setAppEUI(“1112131415161718”);
 		```
 
-- APPLICATION KEY
+- **APPLICATION KEY**
 	- 16 bytes
 	- set by user
 	- Whenever an end-device joins a network via OTAA, the Application Key is used to derive the session keys, Network Session Key and Application Session Key, which are speci c for that end-device to encrypt and verify network communication and application data.
