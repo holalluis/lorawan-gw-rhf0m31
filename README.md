@@ -88,7 +88,7 @@ http://www.risinghf.com/product/rhf0m301/?lang=en
 
 
 ## 2. Paràmetres necessaris per configurar xarxa
-nota: els exemples de codi corresponen al model Waspmote, no al rhf0m31
+<b>nota</b>: els exemples de codi corresponen al model Waspmote, no al rhf0m31
 - DEVICE EUI
 	- 8 bytes
 	- Set by the user. If not, the preprogrammed is used (00-00-00-00-00-00-00-00).
