@@ -1,4 +1,5 @@
-# Recerca per configurar gateway LoRaWAN a ICRA (model rhf0m31)
+# Recerca per configurar gateway LoRaWAN a ICRA 
+## model rhf0m31
 
 Esquema aparells connectats
 ```
