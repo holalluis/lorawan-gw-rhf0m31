@@ -64,32 +64,32 @@ Esquema aparells connectats
 	```
 
 ## 1. Links
-* model gateway que tenim: rhf0m31
+* Model gateway que tenim: rhf0m31
 http://www.risinghf.com/product/rhf0m301/?lang=en
-	* user manual (serveix per configurar el raspberry+gateway)(tot fet menys la part de l'empresa Loriot)
+	* User manual (serveix per configurar el raspberry+gateway)(tot fet menys la part de l'empresa Loriot)
 	https://github.com/SeeedDocument/LoRaWAN_Gateway-868MHz_Kit_with_Raspberry_Pi_3/raw/master/res/%5BRHF-UM01649%5DIoT%20Discovery%20User%20Manual-seeed-v2.1.pdf
-	* forum sobre rhf0m31 a TTN.org (no llegit)
+	* Forum sobre rhf0m31 a TTN.org (no llegit)
 	https://www.thethingsnetwork.org/forum/t/has-anyone-tried-the-risinghf-gateway-boards/3281/9
 
 * seeeduino lorawan (en tenim 3) (és l'aparell que envia les dades al gateway)
-	* aparell
+	* Aparell
 	https://www.seeedstudio.com/Seeeduino-LoRaWAN-p-2780.html
-	* instruccions
+	* Instruccions
 	http://wiki.seeed.cc/Seeeduino_LoRAWAN/
 
 * Altres aparells (que no tenim)
-	* model gw molt utilitzat a TTN: ic880 (possible compra)
-		* aparell
+	* Model gw molt utilitzat a TTN: ic880 (possible compra)
+		* Aparell
 		https://wireless-solutions.de/products/radiomodules/ic880a
-		* configuració (gonzalo casas)
+		* Configuració (gonzalo casas)
 		https://github.com/ttn-zh/ic880a-gateway/wiki
-	* model gw libelium waspmote (model que fan servir EAWAG) (possible compra)
+	* Model gw libelium waspmote (model que fan servir EAWAG) (possible compra)
 	http://www.libelium.com/products/waspmote/
 
 
 ## 2. Paràmetres necessaris per configurar xarxa
 <b>nota</b>: els exemples de codi corresponen al model Waspmote, no al rhf0m31
-- DEVICE EUI
+- <b>DEVICE EUI</b>
 	- 8 bytes
 	- Set by the user. If not, the preprogrammed is used (00-00-00-00-00-00-00-00).
 	- Example for user-provided device EUI:
@@ -97,7 +97,7 @@ http://www.risinghf.com/product/rhf0m301/?lang=en
 		setDeviceEUI('0102030405060708');
 		```
 
-- DEVICE ADDRESS
+- *DEVICE ADDRESS*
 	- 4 bytes (0 to ff-ff-ff-ff)
 	- has to be unique inside network
 	- if not set, the last 4 bytes of device EUI are used.
