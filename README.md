@@ -3,7 +3,6 @@
 ## Model arduino (el que envia les dades via LoRa)
 http://wiki.seeed.cc/Seeeduino_LoRAWAN/
 
-
 ## model gateway (el qui rep les dades via LoRa): rhf0m31
 
 Esquema aparells connectats
