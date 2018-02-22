@@ -13,5 +13,4 @@ REUNIO FELIX 22/2/2018 A SANT SADURNI
   va amb una llibreria d'arduino (DallasTemperature.h)
   dins de l'arduino ide:
   - sketch / include library / add .zip library
-  - [http://github.com/milesburton/arduino-temperature-control-library](link)
-
+  - [http://github.com/milesburton/arduino-temperature-control-library]()
