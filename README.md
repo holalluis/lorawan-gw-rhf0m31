@@ -44,28 +44,32 @@ Esquema aparells connectats
 	```
 - Enviat string "Hello World" amb la llibreria LoRaWAN.h d'arduino
 	```c++
-		#include <LoRaWan.h>
-		void setup(void) {
-			lora.init();
-			lora.getVersion(buffer, 256, 1);
-			lora.getId(buffer, 256, 1);
-			lora.setKey("2B7E151628AED2A6ABF7158809CF4F3C", "2B7E151628AED2A6ABF7158809CF4F3C", "2B7E151628AED2A6ABF7158809CF4F3C");
-			lora.setDeciveMode(LWABP);
-			lora.setDataRate(DR0, EU868);
-			lora.setChannel(0, 868.1);
-			lora.setChannel(1, 868.3);
-			lora.setChannel(2, 868.5);
-			lora.setReceiceWindowFirst(0, 868.1);
-			lora.setReceiceWindowSecond(869.5, DR3);
-			lora.setDutyCycle(false);
-			lora.setJoinDutyCycle(false);
-			lora.setPower(14);
-		}
+    #include <LoRaWan.h>
 
-		void loop(void) {   
-			bool result = false;
-			result = lora.transferPacket("Hello World!", 10);
-		}
+    char buffer[256]={0,};
+
+    void setup(void) {
+      lora.init();
+      lora.getVersion(buffer, 256, 1);
+      lora.getId(buffer, 256, 1);
+      lora.setKey("2B7E151628AED2A6ABF7158809CF4F3C", "2B7E151628AED2A6ABF7158809CF4F3C", "2B7E151628AED2A6ABF7158809CF4F3C");
+      lora.setDeciveMode(LWABP);
+      lora.setDataRate(DR0, EU868);
+      lora.setChannel(0, 868.1);
+      lora.setChannel(1, 868.3);
+      lora.setChannel(2, 868.5);
+      lora.setReceiceWindowFirst(0, 868.1);
+      lora.setReceiceWindowSecond(869.5, DR3);
+      lora.setDutyCycle(false);
+      lora.setJoinDutyCycle(false);
+      lora.setPower(14);
+    }
+
+    void loop(void){
+      SerialUSB.println("enviant hello world "+String(millis()/1000));
+      bool result = false;
+      result = lora.transferPacket("Hello World!", 5);
+    }
 	```
 
 ## 1. Links
