@@ -1,9 +1,14 @@
-# Recerca per configurar gateway LoRaWAN a ICRA 
+# configurar gateway LoRaWAN
 
-## Model arduino (el que envia les dades via LoRa)
+## estat:
+ja no fem servir seeeduino+rhf0m31 i ara fem servir waspmote (libelium).
+Veure https://github.com/icra/lora-waspmote
+
+------------------------------------------------
+
+## gateway utilitzat (qui rep les dades): rhf0m31
+## arduino utilitzat (qui envia les dades): seeeduino lorawan
 http://wiki.seeed.cc/Seeeduino_LoRAWAN/
-
-## model gateway (el qui rep les dades via LoRa): rhf0m31
 
 Esquema aparells connectats
 ```
